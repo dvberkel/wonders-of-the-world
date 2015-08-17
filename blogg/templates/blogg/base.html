@@ -11,6 +11,9 @@
 </head>
 <body>
 	<section class="page-header">
+		{% if user.is_authenticated %}
+		<a href="{% url "post_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+		{% endif %}
 		<h1>Wonders of the World</h1>
 	</section>
 	<p class="introduction">Where you can muse about the <em>Wonders of the World</em></p>
