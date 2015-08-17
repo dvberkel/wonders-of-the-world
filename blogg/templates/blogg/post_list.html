@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8"/>
-	<title>Wonders of the World</title>
-</head>
-<body>
-	<h1>Wonders of the World</h1>
-	<p>Where you can muse about the <em>Wonders of the World</em></p>
-	<section>
-		{% for post in posts %}
-		<div>
-			<p>published: {{ post.published_date }}</p>
-			<h2>{{ post.title }}</h2>
-			<p>{{ post.text | linebreaks }}</p>
-		</div>
-		{% endfor %}
-	</section>
-</body>
-</html>
+{% extends 'blogg/base.html' %}
+{% block content %}
+	{% for post in posts %}
+	<div class="post">
+		<p>published: {{ post.published_date }}</p>
+		<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+		<p>{{ post.text | linebreaks }}</p>
+	</div>
+	{% endfor %}
+{% endblock content %}
